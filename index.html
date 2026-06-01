@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blacksea Growth Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --black:#000000;
+  --black2:#0a0a0a;
+  --black3:#111111;
+  --gold:#c9a84c;
+  --gold2:#e8c97e;
+  --teal:#00f5c4;
+  --teal2:#00c49a;
+  --teal3:rgba(0,245,196,0.08);
+  --text:#f0ece0;
+  --muted:#6b7f8f;
+  --border:rgba(0,245,196,0.12);
+  --gold-border:rgba(201,168,76,0.2);
+}
+body{background:var(--black);color:var(--text);font-family:'DM Mono',monospace;font-size:14px;overflow-x:hidden}
+
+/* Grid background */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,245,196,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,196,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+
+/* Glow orbs */
+body::after{content:'';position:fixed;top:20%;right:10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,245,196,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+*{position:relative;z-index:1}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);z-index:100}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;letter-spacing:0.15em;color:var(--gold)}
+.logo span{color:var(--teal);font-style:italic}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;cursor:pointer}
+.nav-links a:hover{color:var(--teal)}
+
+.hero{padding:6rem 3rem 5rem;overflow:hidden}
+.hero-tag{font-size:10px;letter-spacing:0.2em;color:var(--teal);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.hero-tag::before{content:'';width:30px;height:0.5px;background:var(--teal)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.05;max-width:800px;margin-bottom:1.5rem}
+h1 em{color:var(--gold);font-style:italic}
+h1 span{color:var(--teal)}
+.hero-sub{color:var(--muted);font-size:12px;letter-spacing:0.08em;max-width:500px;line-height:1.9;margin-bottom:3rem}
+.cta-row{display:flex;gap:1rem}
+.btn-primary{background:var(--teal);color:var(--black);padding:0.75rem 2rem;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;font-weight:400}
+.btn-primary:hover{background:var(--teal2);box-shadow:0 0 20px rgba(0,245,196,0.3)}
+.btn-ghost{background:transparent;color:var(--gold);padding:0.75rem 2rem;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;border:0.5px solid var(--gold-border);cursor:pointer;transition:all 0.3s}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,168,76,0.05)}
+
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);margin:0 3rem}
+.stat{padding:2rem 1.5rem;border-right:0.5px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--teal);line-height:1}
+.stat-label{font-size:10px;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;margin-top:0.5rem}
+
+section{padding:5rem 3rem}
+.section-tag{font-size:10px;letter-spacing:0.2em;color:var(--teal);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+.section-tag::before{content:'';width:20px;height:0.5px;background:var(--teal)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;margin-bottom:3rem;line-height:1.2}
+
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border)}
+.portfolio-card{background:var(--black);padding:1.75rem;transition:all 0.3s}
+.portfolio-card:hover{background:var(--teal3)}
+.card-top{display:flex;justify-content:space-between;margin-bottom:1rem}
+.ticker{font-size:1.1rem;color:var(--teal);letter-spacing:0.05em;font-weight:400}
+.card-name{font-size:11px;color:var(--muted);letter-spacing:0.08em;margin-bottom:1.25rem;line-height:1.5}
+.card-meta{display:flex;justify-content:space-between;align-items:flex-end}
+.card-size{font-size:10px;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase}
+.card-sdg{font-size:9px;letter-spacing:0.1em;color:var(--teal);border:0.5px solid rgba(0,245,196,0.25);padding:3px 8px}
+.card-note{font-size:10px;color:var(--muted);margin-top:0.35rem;font-style:italic}
+
+.alloc-wrap{margin-top:3rem}
+.alloc-label-row{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.alloc-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.alloc-label{font-size:11px;color:var(--muted);min-width:160px}
+.alloc-bar-bg{flex:1;height:2px;background:rgba(0,245,196,0.08)}
+.alloc-bar{height:2px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.alloc-pct{font-size:11px;color:var(--teal);min-width:40px;text-align:right}
+
+.geo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.geo-card{border:0.5px solid var(--border);padding:1.25rem;text-align:center;transition:all 0.3s}
+.geo-card:hover{border-color:var(--teal);background:var(--teal3)}
+.geo-flag{font-size:2rem;margin-bottom:0.5rem}
+.geo-label{font-size:10px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase}
+.geo-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin-top:0.25rem}
+
+.thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.thesis-item{border-top:0.5px solid var(--border);padding-top:1.5rem}
+.thesis-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(0,245,196,0.1);line-height:1;margin-bottom:1rem}
+.thesis-title{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem}
+.thesis-text{font-size:11px;color:var(--muted);line-height:1.9}
+
+.sdg-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.sdg-pill{border:0.5px solid var(--border);padding:1rem;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
+.sdg-pill::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:var(--teal3);opacity:0;transition:opacity 0.3s}
+.sdg-pill:hover::before{opacity:1}
+.sdg-pill:hover{border-color:var(--teal)}
+.sdg-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--teal)}
+.sdg-name{font-size:9px;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-top:0.25rem;line-height:1.4}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-text p{font-size:12px;color:var(--muted);line-height:2;margin-bottom:1.5rem}
+.about-text p strong{color:var(--text);font-weight:400}
+.brand-card{background:var(--black2);border:0.5px solid var(--border);padding:2.5rem;position:relative;overflow:hidden}
+.brand-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(0,245,196,0.05) 0%,transparent 70%)}
+.brand-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);margin-bottom:0.5rem}
+.brand-domain{font-size:11px;color:var(--teal);letter-spacing:0.1em;margin-bottom:2rem}
+.brand-row{display:flex;justify-content:space-between;padding:0.75rem 0;border-bottom:0.5px solid var(--border);font-size:11px}
+.brand-row:last-child{border-bottom:none}
+.brand-key{color:var(--muted)}
+.brand-val{color:var(--text)}
+
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.blog-card{background:var(--black2);border:0.5px solid var(--border);padding:1.75rem;transition:all 0.3s}
+.blog-card:hover{border-color:var(--teal);background:var(--teal3)}
+.blog-tag{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;color:var(--text);line-height:1.4;margin-bottom:0.75rem}
+.blog-excerpt{font-size:11px;color:var(--muted);line-height:1.9;margin-bottom:1.25rem}
+.blog-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:1rem}
+.blog-read{font-size:10px;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase}
+
+footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;letter-spacing:0.15em;color:var(--gold)}
+.footer-copy{font-size:10px;color:var(--muted);margin-top:0.5rem}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.3s}
+.footer-links a:hover{color:var(--teal)}
+
+.divider{height:0.5px;background:var(--border);margin:0 3rem}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{padding:4rem 1.5rem}
+  .stats-bar{grid-template-columns:repeat(2,1fr);margin:0 1.5rem}
+  section{padding:3rem 1.5rem}
+  .thesis-grid,.about-grid,.geo-grid{grid-template-columns:1fr}
+  .sdg-row{grid-template-columns:repeat(3,1fr)}
+  .portfolio-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
+}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}.contact-intro{font-size:12px;color:var(--muted);line-height:2;margin-bottom:2.5rem}.contact-items{display:flex;flex-direction:column;gap:1.5rem}.contact-item{display:flex;align-items:flex-start;gap:1rem}.contact-icon{font-size:1.1rem;margin-top:2px;min-width:24px}.contact-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem}.contact-val{font-size:12px;color:var(--teal)}.contact-form{display:flex;flex-direction:column;gap:1.25rem}.form-group{display:flex;flex-direction:column;gap:0.5rem}.form-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}.form-input{background:var(--black2);border:0.5px solid var(--border);color:var(--text);font-family:"DM Mono",monospace;font-size:12px;padding:0.75rem 1rem;outline:none;transition:border-color 0.3s;width:100%}.form-input:focus{border-color:var(--teal)}.form-textarea{resize:vertical;min-height:120px}.btn-send{background:transparent;color:var(--teal);border:0.5px solid var(--teal);padding:0.85rem 2rem;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-align:left}.btn-send:hover{background:var(--teal3);box-shadow:0 0 20px rgba(0,245,196,0.15)}@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">BLACKSEA <span>Growth Partners</span></div>
+  <div class="nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#sdg">SDG</a>
+    <a href="#blog">Blog</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Est. 2026 · Manila, Philippines</div>
+  <h1>Where <em>Capital</em><br>Meets <span>Purpose</span></h1>
+  <p class="hero-sub">A personal investment portfolio aligned with the UN Sustainable Development Goals — growing wealth across AI, healthcare, clean energy, and real estate in Philippine and global markets.</p>
+  <div class="cta-row">
+    <a href="#portfolio"><button class="btn-primary">View Portfolio</button></a>
+    <a href="#about"><button class="btn-ghost">Our Story</button></a>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-val">8</div><div class="stat-label">Holdings</div></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-label">Continents</div></div>
+  <div class="stat"><div class="stat-val">6</div><div class="stat-label">SDGs Covered</div></div>
+  <div class="stat"><div class="stat-val">2030</div><div class="stat-label">Target Horizon</div></div>
+</div>
+
+<div class="divider" style="margin-top:0"></div>
+
+<section id="portfolio">
+  <div class="section-tag">Holdings</div>
+  <h2>Global Portfolio</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">ACEN</span><span>🇵🇭</span></div>
+      <div class="card-name">AC Energy Corporation<br>Ayala Group · Clean Energy</div>
+      <div class="card-meta">
+        <div><div class="card-size">Core Position</div><div class="card-note">Dividend-paying · 20GW target</div></div>
+        <div class="card-sdg">SDG 7</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">SPNEC</span><span>🇵🇭</span></div>
+      <div class="card-name">SP New Energy Corporation<br>Meralco Group · Solar + BESS</div>
+      <div class="card-meta">
+        <div><div class="card-size">Growth Position</div><div class="card-note">World's largest solar project</div></div>
+        <div class="card-sdg">SDG 7</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">CREIT</span><span>🇵🇭</span></div>
+      <div class="card-name">Citicore Energy REIT Corp<br>Citicore Group · Energy REIT</div>
+      <div class="card-meta">
+        <div><div class="card-size">Income Position</div><div class="card-note">Quarterly dividend · 5.86% yield</div></div>
+        <div class="card-sdg">SDG 7</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">MYNLD</span><span>🇵🇭</span></div>
+      <div class="card-name">Maynilad Water Services<br>MVP Group · Water Utility</div>
+      <div class="card-meta">
+        <div><div class="card-size">Defensive Position</div><div class="card-note">Essential utility · Dividend growth</div></div>
+        <div class="card-sdg">SDG 6</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">O</span><span>🇺🇸</span></div>
+      <div class="card-name">Realty Income Corporation<br>Monthly Dividend Company · REIT</div>
+      <div class="card-meta">
+        <div><div class="card-size">Income Position</div><div class="card-note">671 consecutive monthly dividends</div></div>
+        <div class="card-sdg">SDG 11</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">SCHD</span><span>🇺🇸</span></div>
+      <div class="card-name">Schwab US Dividend Equity ETF<br>100 Quality Dividend Stocks</div>
+      <div class="card-meta">
+        <div><div class="card-size">Diversified Position</div><div class="card-note">Healthcare 18.6% · Tech 14.4%</div></div>
+        <div class="card-sdg">Multi-SDG</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">AWK</span><span>🇺🇸</span></div>
+      <div class="card-name">American Water Works<br>Largest US Water Utility</div>
+      <div class="card-meta">
+        <div><div class="card-size">Defensive Position</div><div class="card-note">Consistent dividend growth</div></div>
+        <div class="card-sdg">SDG 6</div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="card-top"><span class="ticker">ENEL</span><span>🇮🇹</span></div>
+      <div class="card-name">Enel SpA · Italy · Europe (Euronext)<br>Global Renewable Energy Leader</div>
+      <div class="card-meta">
+        <div><div class="card-size">International Position</div><div class="card-note">30+ countries · Smart cities</div></div>
+        <div class="card-sdg">SDG 7,9</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alloc-wrap">
+    <div class="alloc-label-row">Sector Allocation</div>
+    <div class="alloc-row"><span class="alloc-label">Clean Energy</span><div class="alloc-bar-bg"><div class="alloc-bar" style="width:55%"></div></div><span class="alloc-pct">55%</span></div>
+    <div class="alloc-row"><span class="alloc-label">Water Utility</span><div class="alloc-bar-bg"><div class="alloc-bar" style="width:11%"></div></div><span class="alloc-pct">11%</span></div>
+    <div class="alloc-row"><span class="alloc-label">Real Estate / REIT</span><div class="alloc-bar-bg"><div class="alloc-bar" style="width:16%"></div></div><span class="alloc-pct">16%</span></div>
+    <div class="alloc-row"><span class="alloc-label">Diversified ETF</span><div class="alloc-bar-bg"><div class="alloc-bar" style="width:10%"></div></div><span class="alloc-pct">10%</span></div>
+    <div class="alloc-row"><span class="alloc-label">European Energy</span><div class="alloc-bar-bg"><div class="alloc-bar" style="width:8%"></div></div><span class="alloc-pct">8%</span></div>
+  </div>
+
+  <div class="geo-grid">
+    <div class="geo-card"><div class="geo-flag">🇵🇭</div><div class="geo-label">Philippines (PSE)</div><div class="geo-val">4 Holdings</div></div>
+    <div class="geo-card"><div class="geo-flag">🇺🇸</div><div class="geo-label">United States (NYSE)</div><div class="geo-val">3 Holdings</div></div>
+    <div class="geo-card"><div class="geo-flag">🇮🇹</div><div class="geo-label">Italy · Europe (Euronext)</div><div class="geo-val">1 Holding</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="thesis">
+  <div class="section-tag">Investment Thesis</div>
+  <h2>Built on Three Pillars</h2>
+  <div class="thesis-grid">
+    <div class="thesis-item">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">Artificial Intelligence</div>
+      <div class="thesis-text">Investing in companies at the frontier of AI infrastructure, enterprise intelligence, and AI-powered services across Philippine and global markets.</div>
+    </div>
+    <div class="thesis-item">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">Healthcare</div>
+      <div class="thesis-text">Targeting the intersection of health services, medical innovation, and AI-driven diagnostics. Exposure through SCHD's healthcare allocation and future direct positions.</div>
+    </div>
+    <div class="thesis-item">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">Properties & Energy</div>
+      <div class="thesis-text">Real estate investment trusts and clean energy infrastructure — combining the stability of property income with the growth of the renewable energy transition.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="sdg">
+  <div class="section-tag">Impact</div>
+  <h2>Agenda 2030 Alignment</h2>
+  <div class="sdg-row">
+    <div class="sdg-pill"><div class="sdg-num">6</div><div class="sdg-name">Clean Water</div></div>
+    <div class="sdg-pill"><div class="sdg-num">7</div><div class="sdg-name">Clean Energy</div></div>
+    <div class="sdg-pill"><div class="sdg-num">8</div><div class="sdg-name">Decent Work</div></div>
+    <div class="sdg-pill"><div class="sdg-num">9</div><div class="sdg-name">Innovation</div></div>
+    <div class="sdg-pill"><div class="sdg-num">11</div><div class="sdg-name">Sustainable Cities</div></div>
+    <div class="sdg-pill"><div class="sdg-num">13</div><div class="sdg-name">Climate Action</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="section-tag">About</div>
+  <h2>The Story Behind<br>Blacksea Growth Partners</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Blacksea Growth Partners is a personal investment portfolio founded on the belief that <strong>capital and purpose are not mutually exclusive</strong>. Built by a Filipino IT professional with over a decade of experience in information systems development.</p>
+      <p>The portfolio spans <strong>three continents</strong> — Philippine, US, and European markets — with a focused thesis on the industries shaping the next decade: artificial intelligence, healthcare, clean energy, and sustainable real estate.</p>
+      <p>Every holding is intentionally selected to align with the <strong>UN Sustainable Development Goals</strong>, ensuring that financial returns contribute to a broader vision of global progress by 2030 and beyond.</p>
+    </div>
+    <div>
+      <div class="brand-card">
+        <div class="brand-title">Blacksea Growth Partners</div>
+        <div class="brand-domain">blackseagp.com</div>
+        <div class="brand-row"><span class="brand-key">Founded</span><span class="brand-val">2026</span></div>
+        <div class="brand-row"><span class="brand-key">Base</span><span class="brand-val">Manila, Philippines</span></div>
+        <div class="brand-row"><span class="brand-key">Markets</span><span class="brand-val">PSE · NYSE · Euronext</span></div>
+        <div class="brand-row"><span class="brand-key">Focus</span><span class="brand-val">AI · Health · Properties</span></div>
+        <div class="brand-row"><span class="brand-key">Strategy</span><span class="brand-val">Buy & Hold · Dividend Growth</span></div>
+        <div class="brand-row"><span class="brand-key">SDG Aligned</span><span class="brand-val">Goals 6, 7, 8, 9, 11, 13</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="blog">
+  <div class="section-tag">Insights</div>
+  <h2>From the Desk of<br>Blacksea Growth Partners</h2>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-tag">Stock Analysis</div>
+      <div class="blog-title">Why I Invested in ACEN: The Philippine Clean Energy Play</div>
+      <div class="blog-excerpt">ACEN is not just another energy stock — it is the Ayala Group's bold bet on renewable energy across Asia. Here is why it became my largest PSE holding.</div>
+      <div class="blog-meta"><span>June 1, 2026 · 5 min read</span><span class="blog-read">Read →</span></div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">Agenda 2030</div>
+      <div class="blog-title">How My Portfolio Aligns with the UN Sustainable Development Goals</div>
+      <div class="blog-excerpt">Every stock I own is intentionally selected to contribute to at least one SDG. From clean water to clean energy to sustainable cities — here is the full breakdown.</div>
+      <div class="blog-meta"><span>May 20, 2026 · 7 min read</span><span class="blog-read">Read →</span></div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">Passive Income</div>
+      <div class="blog-title">Building ₱1,000/Month in Dividend Income: My Step-by-Step Journey</div>
+      <div class="blog-excerpt">From zero to four-figure monthly passive income — the stocks I chose, the mistakes I made, and the strategy that finally worked across PSE and US markets.</div>
+      <div class="blog-meta"><span>May 10, 2026 · 6 min read</span><span class="blog-read">Read →</span></div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">Global Markets</div>
+      <div class="blog-title">Why Every Filipino Investor Should Have US and European Exposure</div>
+      <div class="blog-excerpt">The Philippine peso is vulnerable to global shocks. Diversifying into USD and EUR-denominated assets is not just smart — it is essential for long-term wealth preservation.</div>
+      <div class="blog-meta"><span>April 28, 2026 · 5 min read</span><span class="blog-read">Read →</span></div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">PSE Insights</div>
+      <div class="blog-title">SPNEC After the Meralco Takeover: What Changed and What It Means</div>
+      <div class="blog-excerpt">When MVP Group took majority control of SPNEC, everything changed. The risk profile dropped, the credibility soared, and MTerra Solar became a serious global story.</div>
+      <div class="blog-meta"><span>April 15, 2026 · 8 min read</span><span class="blog-read">Read →</span></div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-tag">Strategy</div>
+      <div class="blog-title">DRIP: The Quiet Strategy That Grows Your Portfolio While You Sleep</div>
+      <div class="blog-excerpt">Dividend reinvestment is one of the most powerful yet underused strategies for retail investors. Here is how I use it across CREIT, O, and SCHD to compound quietly.</div>
+      <div class="blog-meta"><span>April 5, 2026 · 4 min read</span><span class="blog-read">Read →</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="section-tag">Contact</div>
+  <h2>Get in Touch</h2>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p class="contact-intro">Interested in discussing investments, partnerships, or just want to connect? Reach out — always open to conversations with like-minded investors.</p>
+      <div class="contact-items">
+        <div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-val">hello@blackseagp.com</div></div></div>
+        <div class="contact-item"><div class="contact-icon">🌐</div><div><div class="contact-label">Website</div><div class="contact-val">blackseagp.com</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-val">Manila, Philippines</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📊</div><div><div class="contact-label">Markets</div><div class="contact-val">PSE · NYSE · Euronext</div></div></div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="contact-form">
+        <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input" placeholder="Your name" /></div>
+        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="your@email.com" /></div>
+        <div class="form-group"><label class="form-label">Subject</label><select class="form-input"><option value="">Select a topic</option><option>Investment Discussion</option><option>Partnership Inquiry</option><option>Blog Collaboration</option><option>General Inquiry</option></select></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input form-textarea" placeholder="Your message..."></textarea></div>
+        <button class="btn-send">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">BLACKSEA GROWTH PARTNERS</div>
+    <div class="footer-copy">© 2026 · blackseagp.com · Manila, Philippines</div>
+  </div>
+  <div class="footer-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+
+  </div>
+</footer>
+
+</body>
+</html>
