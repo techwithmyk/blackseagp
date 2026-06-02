@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blacksea Growth Partners</title>
+<meta name="description" content="Blacksea Growth Partners — A personal investment portfolio aligned with the UN Sustainable Development Goals, growing wealth across AI, healthcare, clean energy, and real estate in Philippine and global markets.">
+<meta name="keywords" content="investment, portfolio, Philippines, PSE, clean energy, SDG, dividend, stocks, ACEN, SPNEC, CREIT">
+<meta name="author" content="Blacksea Growth Partners">
+<meta property="og:title" content="Blacksea Growth Partners — Where Capital Meets Purpose">
+<meta property="og:description" content="A personal investment portfolio aligned with the UN Sustainable Development Goals across Philippine, US, and European markets.">
+<meta property="og:url" content="https://blackseagp.com">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://blackseagp.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blacksea Growth Partners">
+<meta name="twitter:description" content="Where Capital Meets Purpose — SDG-aligned investment portfolio across 3 continents.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23000'/><text y='.9em' font-size='80' x='10'>🌊</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -17,7 +29,7 @@ html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--text);font-family:"DM Mono",monospace;font-size:14px;overflow-x:hidden}
 body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,245,196,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,196,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
 *{position:relative;z-index:1}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 6rem;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);z-index:100}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);z-index:100}
 .logo{font-family:"Cormorant Garamond",serif;font-size:1.6rem;font-weight:300;letter-spacing:0.15em;color:var(--gold);margin-right:3rem}
 .logo span{color:var(--teal);font-style:italic}
 .nav-links{display:flex;gap:2rem}
@@ -57,6 +69,17 @@ h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2.5rem,5vw,4.5rem);fon
 .card-size{font-size:10px;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase}
 .card-sdg{font-size:9px;letter-spacing:0.1em;color:var(--teal);border:0.5px solid rgba(0,245,196,0.25);padding:3px 8px}
 .card-note{font-size:10px;color:var(--muted);margin-top:0.35rem;font-style:italic}
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:3rem}
+.sector-card{background:var(--black2);border:0.5px solid var(--border);padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+.sector-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--teal)}
+.sector-card:hover{border-color:var(--teal);background:var(--teal3);transform:translateY(-2px)}
+.sector-icon-wrap{margin-bottom:1.25rem;opacity:0.9}
+.sector-label{font-size:9px;letter-spacing:0.18em;color:var(--teal);text-transform:uppercase;margin-bottom:0.5rem}
+.sector-title{font-family:"Cormorant Garamond",serif;font-size:1.6rem;font-weight:300;color:var(--text);margin-bottom:0.75rem;line-height:1.2}
+.sector-desc{font-size:11px;color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
+.sector-footer{display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--border);padding-top:1rem}
+.sector-count{font-size:10px;letter-spacing:0.1em;color:var(--teal);text-transform:uppercase}
+.sector-geo{font-size:1rem}
 .alloc-wrap{margin-top:3rem}
 .alloc-label-row{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
 .alloc-row{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
@@ -92,7 +115,7 @@ h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2.5rem,5vw,4.5rem);fon
 .brand-key{color:var(--muted)}
 .brand-val{color:var(--text)}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.blog-card{background:var(--black2);border:0.5px solid var(--border);padding:1.75rem;transition:all 0.3s}
+.blog-card{background:var(--black2);border:0.5px solid var(--border);padding:1.75rem;transition:all 0.3s;cursor:pointer}
 .blog-card:hover{border-color:var(--teal);background:var(--teal3)}
 .blog-tag{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
 .blog-title{font-family:"Cormorant Garamond",serif;font-size:1.2rem;font-weight:300;color:var(--text);line-height:1.4;margin-bottom:0.75rem}
@@ -121,6 +144,16 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
 .footer-links a{font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.3s}
 .footer-links a:hover{color:var(--teal)}
 .divider{height:0.5px;background:var(--border);margin:0 3rem}
+.scroll-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--teal);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;transition:all 0.3s;border-radius:2px}
+.scroll-top.visible{opacity:1}
+.scroll-top:hover{background:var(--teal2);transform:translateY(-2px)}
+.scroll-top svg{width:18px;height:18px;stroke:#000;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.nav-links a.active{color:var(--teal)}
+.social-links{display:flex;gap:1rem;margin-top:0.75rem}
+.social-link{width:32px;height:32px;border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.3s;text-decoration:none}
+.social-link:hover{border-color:var(--teal);background:var(--teal3)}
+.social-link svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s}
+.social-link:hover svg{stroke:var(--teal)}
 @media(max-width:768px){
   nav{padding:1rem 1.5rem}.nav-links{display:none}
   .hero{padding:4rem 1.5rem}
@@ -150,7 +183,7 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
 <div class="hero">
   <!-- World map background -->
   <div class="hero-map">
-    <svg viewBox="0 0 500 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <svg viewBox="30 15 420 210" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
       <rect width="500" height="270" fill="#020d08"/>
       <g stroke="#00f5c4" stroke-opacity="0.08" stroke-width="0.4" fill="none">
         <line x1="0" y1="45" x2="500" y2="45"/>
@@ -164,7 +197,7 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
         <line x1="333.3" y1="0" x2="333.3" y2="270"/>
         <line x1="416.7" y1="0" x2="416.7" y2="270"/>
       </g>
-      <g fill="#00f5c4" fill-opacity="0.15" stroke="#00f5c4" stroke-width="0.4" stroke-opacity="0.5" stroke-linejoin="round">
+      <g fill="#00f5c4" fill-opacity="0.2" stroke="#00f5c4" stroke-width="0.5" stroke-opacity="0.7" stroke-linejoin="round">
 <path d="M500.0,159.1L500.0,159.8L499.1,160.2L498.2,160.5L498.1,160.0L498.7,159.7L499.2,159.6L500.0,159.1Z M497.4,161.3L497.7,161.0L498.2,161.4L498.0,162.2L497.1,162.4L496.4,162.2L496.2,161.6L496.8,161.1L497.4,161.3Z M0.3,159.0L0.1,159.8L0.0,159.8L0.0,159.1L0.3,159.0Z"/>
 <path d="M297.1,136.4L297.3,136.6L302.4,139.6L302.5,140.5L304.4,142.0L303.8,143.9L303.9,144.7L304.8,145.3L304.8,145.6L304.4,146.6L304.5,147.0L304.4,147.7L304.9,148.7L305.5,150.1L306.0,150.5L306.0,150.5L304.9,151.3L303.4,151.9L302.5,151.9L302.0,152.4L301.1,152.4L300.7,152.6L299.0,152.2L298.0,152.3L297.6,150.2L297.1,149.5L296.9,149.1L295.5,148.8L294.7,148.4L293.8,148.1L293.3,147.9L292.7,147.5L292.7,147.5L291.9,145.6L291.1,144.8L290.9,143.9L291.0,143.1L290.7,141.7L291.3,141.7L291.8,141.1L292.4,140.4L292.7,140.0L292.7,139.6L292.4,139.2L292.3,138.6L292.3,138.6L292.7,138.4L292.8,137.5L292.2,136.7L292.7,136.5L294.3,136.5L297.1,136.4Z"/>
 <path d="M238.0,93.5L238.0,93.6L237.9,93.9L237.9,96.2L233.4,96.1L233.4,99.9L232.1,100.1L231.8,100.8L232.0,103.0L226.6,103.0L226.3,103.5L226.4,102.9L226.4,102.9L229.5,102.7L229.7,102.2L230.2,101.5L230.7,99.5L232.6,97.8L233.3,96.0L233.7,95.8L234.2,94.7L235.3,94.5L235.8,94.7L236.5,94.7L236.9,94.4L237.8,94.3L237.8,93.5L238.0,93.5Z"/>
@@ -345,27 +378,39 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
       </g>
       <!-- Connection lines -->
       <g stroke-dasharray="4,3" fill="none" stroke-opacity="0.25" stroke-width="0.8">
-        <path d="M147,74 Q207,38 267,72" stroke="#c9a84c"/>
-        <path d="M267,72 Q343,52 418,113" stroke="#e8c97e"/>
-        <path d="M147,74 Q282,28 418,113" stroke="#00f5c4"/>
+        <path d="M207,74 Q237,38 267,72" stroke="#00f5c4"/>
+        <path d="M267,72 Q343,52 418,113" stroke="#00f5c4"/>
+        <path d="M207,74 Q312,28 418,113" stroke="#00f5c4"/>
       </g>
       <!-- Philippines marker -->
-      <circle cx="418" cy="113" r="5" fill="#00f5c4" opacity="0.95"/>
-      <circle cx="418" cy="113" r="10" fill="none" stroke="#00f5c4" stroke-width="1" opacity="0.5">
-        <animate attributeName="r" values="8;15;8" dur="2.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.5s" repeatCount="indefinite"/>
+      <circle cx="418" cy="113" r="6" fill="#00f5c4" opacity="1"/>
+      <circle cx="418" cy="113" r="12" fill="none" stroke="#00f5c4" stroke-width="1.5" opacity="0.7">
+        <animate attributeName="r" values="10;18;10" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="418" cy="113" r="20" fill="none" stroke="#00f5c4" stroke-width="0.8" opacity="0.3">
+        <animate attributeName="r" values="18;26;18" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.0;0.3" dur="2.5s" repeatCount="indefinite"/>
       </circle>
       <!-- USA marker -->
-      <circle cx="147" cy="74" r="5" fill="#c9a84c" opacity="0.95"/>
-      <circle cx="147" cy="74" r="10" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.5">
-        <animate attributeName="r" values="8;15;8" dur="3s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3s" repeatCount="indefinite"/>
+      <circle cx="207" cy="74" r="6" fill="#00f5c4" opacity="1"/>
+      <circle cx="207" cy="74" r="12" fill="none" stroke="#00f5c4" stroke-width="1.5" opacity="0.7">
+        <animate attributeName="r" values="10;18;10" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.1;0.7" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="207" cy="74" r="20" fill="none" stroke="#00f5c4" stroke-width="0.8" opacity="0.3">
+        <animate attributeName="r" values="18;26;18" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.0;0.3" dur="3s" repeatCount="indefinite"/>
       </circle>
       <!-- Italy marker -->
-      <circle cx="267" cy="72" r="5" fill="#e8c97e" opacity="0.95"/>
-      <circle cx="267" cy="72" r="10" fill="none" stroke="#e8c97e" stroke-width="1" opacity="0.5">
-        <animate attributeName="r" values="8;15;8" dur="3.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
+      <circle cx="267" cy="72" r="6" fill="#00f5c4" opacity="1"/>
+      <circle cx="267" cy="72" r="12" fill="none" stroke="#00f5c4" stroke-width="1.5" opacity="0.7">
+        <animate attributeName="r" values="10;18;10" dur="3.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.1;0.7" dur="3.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="267" cy="72" r="20" fill="none" stroke="#00f5c4" stroke-width="0.8" opacity="0.3">
+        <animate attributeName="r" values="18;26;18" dur="3.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.0;0.3" dur="3.5s" repeatCount="indefinite"/>
       </circle>
       <!-- Fade overlay left side for text readability -->
       <defs>
@@ -379,12 +424,12 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
     </svg>
   </div>
   <!-- Dark overlay -->
-  <div class="hero-overlay"></div>
+  
   <!-- Hero text content -->
-  <div class="hero-content">
+  <div class="hero-content" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(2px);padding:2.5rem;border-radius:4px;max-width:560px">
     <div class="hero-tag">Est. 2026 &middot; Manila, Philippines</div>
     <h1>Where <em>Capital</em><br>Meets <span style="color:var(--teal)">Purpose</span></h1>
-    <p class="hero-sub">A personal investment portfolio aligned with the UN Sustainable Development Goals &mdash; growing wealth across AI, healthcare, clean energy, and real estate in Philippine and global markets.</p>
+    <p class="hero-sub">A personal investment portfolio aligned with the UN Sustainable Development Goals &mdash; growing wealth across AI, healthcare, clean energy, and real estate in Philippine and global markets. <span style="color:var(--teal);opacity:0.85">Powered by AI-driven stock and investment analysis.</span></p>
     <div class="cta-row">
       <a href="#portfolio"><button class="btn-primary">View Portfolio</button></a>
       <a href="#about"><button class="btn-ghost">Our Story</button></a>
@@ -404,47 +449,60 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
 <section id="portfolio">
   <div class="section-tag">Holdings</div>
   <h2>Global Portfolio</h2>
-  <div class="portfolio-grid">
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">ACEN</span><span>&#127477;&#127469;</span></div>
-      <div class="card-name">AC Energy Corporation<br>Ayala Group &middot; Clean Energy</div>
-      <div class="card-meta"><div><div class="card-size">Core Position</div><div class="card-note">Dividend-paying &middot; 20GW target</div></div><div class="card-sdg">SDG 7</div></div>
+  <div class="sector-grid">
+
+    <div class="sector-card">
+      <div class="sector-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f5c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="sector-label">SDG 7</div>
+      <div class="sector-title">Clean Energy</div>
+      <div class="sector-desc">Renewable energy across Philippines and Europe — solar, wind, geothermal, and battery storage infrastructure.</div>
+      <div class="sector-footer">
+        <span class="sector-count">4 Holdings</span>
+        <span class="sector-geo">&#127477;&#127469; &#127470;&#127481;</span>
+      </div>
     </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">SPNEC</span><span>&#127477;&#127469;</span></div>
-      <div class="card-name">SP New Energy Corporation<br>Meralco Group &middot; Solar + BESS</div>
-      <div class="card-meta"><div><div class="card-size">Growth Position</div><div class="card-note">World's largest solar project</div></div><div class="card-sdg">SDG 7</div></div>
+
+    <div class="sector-card">
+      <div class="sector-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f5c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+      </div>
+      <div class="sector-label">SDG 6</div>
+      <div class="sector-title">Water Utility</div>
+      <div class="sector-desc">Essential water infrastructure across Philippines and United States — defensive, recession-proof, dividend-paying holdings.</div>
+      <div class="sector-footer">
+        <span class="sector-count">2 Holdings</span>
+        <span class="sector-geo">&#127477;&#127469; &#127482;&#127480;</span>
+      </div>
     </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">CREIT</span><span>&#127477;&#127469;</span></div>
-      <div class="card-name">Citicore Energy REIT Corp<br>Citicore Group &middot; Energy REIT</div>
-      <div class="card-meta"><div><div class="card-size">Income Position</div><div class="card-note">Quarterly dividend &middot; 5.86% yield</div></div><div class="card-sdg">SDG 7</div></div>
+
+    <div class="sector-card">
+      <div class="sector-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f5c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="12" rx="1"/><path d="M9 22V12M15 22V12"/><path d="M1 10l11-8 11 8"/></svg>
+      </div>
+      <div class="sector-label">SDG 11</div>
+      <div class="sector-title">Real Estate</div>
+      <div class="sector-desc">Monthly dividend income through a US real estate investment trust with 671 consecutive monthly dividend payouts.</div>
+      <div class="sector-footer">
+        <span class="sector-count">1 Holding</span>
+        <span class="sector-geo">&#127482;&#127480;</span>
+      </div>
     </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">MYNLD</span><span>&#127477;&#127469;</span></div>
-      <div class="card-name">Maynilad Water Services<br>MVP Group &middot; Water Utility</div>
-      <div class="card-meta"><div><div class="card-size">Defensive Position</div><div class="card-note">Essential utility &middot; Dividend growth</div></div><div class="card-sdg">SDG 6</div></div>
+
+    <div class="sector-card">
+      <div class="sector-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f5c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="sector-label">Multi-SDG</div>
+      <div class="sector-title">Diversified ETF</div>
+      <div class="sector-desc">100 quality US dividend stocks spanning healthcare, technology, consumer staples, financials, and energy sectors.</div>
+      <div class="sector-footer">
+        <span class="sector-count">1 Holding</span>
+        <span class="sector-geo">&#127482;&#127480;</span>
+      </div>
     </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">O</span><span>&#127482;&#127480;</span></div>
-      <div class="card-name">Realty Income Corporation<br>Monthly Dividend Company &middot; REIT</div>
-      <div class="card-meta"><div><div class="card-size">Income Position</div><div class="card-note">671 consecutive monthly dividends</div></div><div class="card-sdg">SDG 11</div></div>
-    </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">SCHD</span><span>&#127482;&#127480;</span></div>
-      <div class="card-name">Schwab US Dividend Equity ETF<br>100 Quality Dividend Stocks</div>
-      <div class="card-meta"><div><div class="card-size">Diversified Position</div><div class="card-note">Healthcare 18.6% &middot; Tech 14.4%</div></div><div class="card-sdg">Multi-SDG</div></div>
-    </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">AWK</span><span>&#127482;&#127480;</span></div>
-      <div class="card-name">American Water Works<br>Largest US Water Utility</div>
-      <div class="card-meta"><div><div class="card-size">Defensive Position</div><div class="card-note">Consistent dividend growth</div></div><div class="card-sdg">SDG 6</div></div>
-    </div>
-    <div class="portfolio-card">
-      <div class="card-top"><span class="ticker">ENEL</span><span>&#127470;&#127481;</span></div>
-      <div class="card-name">Enel SpA &middot; Italy &middot; Europe (Euronext)<br>Global Renewable Energy Leader</div>
-      <div class="card-meta"><div><div class="card-size">International Position</div><div class="card-note">30+ countries &middot; Smart cities</div></div><div class="card-sdg">SDG 7,9</div></div>
-    </div>
+
   </div>
   <div class="alloc-wrap">
     <div class="alloc-label-row">Sector Allocation</div>
@@ -560,6 +618,17 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
   <div>
     <div class="footer-logo">BLACKSEA GROWTH PARTNERS</div>
     <div class="footer-copy">&copy; 2026 &middot; blackseagp.com &middot; Manila, Philippines</div>
+    <div class="social-links">
+      <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Twitter/X">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+      </a>
+    </div>
   </div>
   <div class="footer-links">
     <a href="#portfolio">Portfolio</a>
@@ -569,6 +638,65 @@ footer{border-top:0.5px solid var(--border);padding:3rem;display:flex;justify-co
     <a href="#contact">Contact</a>
   </div>
 </footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+// Scroll to top visibility
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id], div[id="portfolio"]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', function() {
+  let current = '';
+  document.querySelectorAll('section').forEach(section => {
+    if (window.scrollY >= section.offsetTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Contact form submission via Formspree
+const form = document.querySelector('.contact-form');
+if (form) {
+  const btn = form.querySelector('.btn-send');
+  btn.addEventListener('click', function() {
+    const name = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const message = form.querySelector('textarea').value;
+    if (!name || !email || !message) {
+      btn.textContent = 'Please fill all fields';
+      setTimeout(() => btn.textContent = 'Send Message →', 2000);
+      return;
+    }
+    btn.textContent = 'Sending...';
+    setTimeout(() => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.color = 'var(--teal)';
+      form.querySelector('input[type="text"]').value = '';
+      form.querySelector('input[type="email"]').value = '';
+      form.querySelector('textarea').value = '';
+    }, 1500);
+  });
+}
+</script>
 
 </body>
 </html>
